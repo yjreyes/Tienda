@@ -1,0 +1,31 @@
+*{
+    font-family: sans-serif;
+    background-color: whitesmoke; 
+}
+body{
+    background-image: url(../imag/logo.jpg);
+    background-repeat: no-repeat;
+    background-position-x: center;
+}
+h2{
+    background-color: green;
+    color:white
+}
+#encabezado{
+    background-color: black;
+    color: #00cc00;
+    text-align: center;
+}
+.articulo{
+    background-color: bisque;
+    color: black;
+}
+
+a:hover{
+    background-color: red;
+    color:white;
+}
+a{
+    background-color: blue;
+    color: white;
+}
