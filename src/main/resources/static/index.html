@@ -9,14 +9,19 @@ Esta es mi primera pagina con web y patrones
         <meta name="description" content="Pagina de tienda techshop">
         <meta name="keywords" content="html5,css,techshop">
         <link href="css/styles.css" rel="stylesheet" type="text/css"/>
+        <link href="css/menuStyles.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
-        <header>
-            <h1 id="encabezado">TechShop</h1>
+        <header class="header">
+            <nav class="nav">
+                <a href="index.html" class="logo nav-link">TechShop</a>
+                <ul>
+                    <li><a class="nav-link" href="ejemplo6.html">Back</a></li>
+                    <li><a  class="nav-link" href="index.html">Home</a></li>
+                    <li><a  class="nav-link" href="ejemplo2.html">Next</a></li>
+                </ul>
+            </nav>
         </header>
-        <nav>
-            <a href="ejemplo6.html">Back</a> | <a href="index.html">Home</a> | <a href="ejemplo2.html">Next</a>
-        </nav>
         <aside>
             <h2>Oferta del día</h2>
             <p>Teclado Rustico</p>
