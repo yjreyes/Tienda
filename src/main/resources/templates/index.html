@@ -7,7 +7,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <h1>Un Cliente</h1>
+        <header th:replace="layout/plantilla :: header"/>
+        <h2>Un Cliente</h2>
+        <a th:href="@{/nuevoCliente}">Nuevo Cliente</a>
+        <div th:if="${clientes !=null and !clientes.empty}">
         <table border="1">
             <thead>
                 <tr>
@@ -15,6 +18,7 @@
                     <th>Apellidos</th>
                     <th>Correo</th>
                     <th>Teléfono</th>
+                    <th>Modificar</th>
                 </tr>
             </thead>
             <tbody>
@@ -23,8 +27,14 @@
                     <td th:text="${cliente.apellidos}"></td>
                     <td th:text="${cliente.correo}"></td>
                     <td th:text="${cliente.telefono}"></td>
+                    <td><a th:href="@{/eliminarCliente/}">Eliminar</a></td>
+                    <td><a th:href="@{/modificarCliente/}+${cliente.idCliente}">Modificar</a></td>
                 </tr>
             </tbody>
         </table>
+            <div th:if="${clientes == null OR clientes.empty}">
+                NO TENEMOS LISTA DE CLIENTES EN BD
+            </div>
+        <footer th:replace="layout/plantilla :: footer"/>
     </body>
 </html>
