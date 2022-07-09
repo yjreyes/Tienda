@@ -4,30 +4,38 @@
     <head>
         <title>Tienda | TechShop</title>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="/css/menu.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
-        <h1>Datos de Clientes</h1>
-        <a th:href="@(/)">Regresar</a>
+        <header th:replace="layout/plantilla :: header"/>
+        <div class="contenido">
+        <h2>Datos de Clientes</h2>
+        <a th:href="@(/cliente/listado)">Regresar</a>
         <br>
-        <form th:action="@{/guardarCliente}"
+        <form th:action="@{/cliente/guardar}"
               method="post"
               th:object="${cliente}">
             <input type="hidden" name="idCliente" th:field="*{idCliente}"/>
+            <input type="hidden" name="idCredito" th:field="*{credito.idGredito}"/>
             
             <label for="nombre">Nombre: </label>
             <imput type="text" name="nombre" th:field="*{nombre}"/>
             
-            <label for="nombre">Apellidos: </label>
+            <label for="apellidos">Apellidos: </label>
             <imput type="text" name="apellidos" th:field="*{apellidos}"/>
             
-            <label for="nombre">correo: </label>
+            <label for="correo">correo: </label>
             <imput type="email" name="correo" th:field="*{correo}"/>
             
-            <label for="nombre">telefono: </label>
+            <label for="telefono">telefono: </label>
             <imput type="tel" name="telefono" th:field="*{telefono}"/>
+            
+            <label for="limite">limite de credito: </label>
+            <imput type="number" name="limite" th:field="*{credito.limite}"/>
             
             <imput type="submit" name="guardar" value="Guardar"/>
         </form>
+        </div>
+        <footer th:replace="layout/plantilla :: footer"/>
     </body>
 </html>
