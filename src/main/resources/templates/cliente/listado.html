@@ -9,34 +9,35 @@
     <body>
         <header th:replace="layout/plantilla :: header"/>
         <div class="contenido">
-        <h2>Un Cliente</h2>
-        <a th:href="@{/cliente/nuevo}">Nuevo Cliente</a>
-        <div th:if="${clientes !=null and !clientes.empty}">
-        <table border="1">
-            <thead>
-                <tr>
-                    <th>Nombre</th>
-                    <th>Apellidos</th>
-                    <th>Correo</th>
-                    <th>Teléfono</th>
-                    <th>Limite</th>
-                    <th>Eliminar</th>
-                    <th>Modificar</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr th:each="cliente : ${clientes}">
-                    <td th:text="${cliente.nombre}"></td>
-                    <td th:text="${cliente.apellidos}"></td>
-                    <td th:text="${cliente.correo}"></td>
-                    <td th:text="${cliente.telefono}"></td>
-                    <td th:text="${numbers.formatDecimal(cliente.credito.limite,3,2)}"
-                        style="text-align: right"></td>
-                    <td><a th:href="@{/cliente/eliminar/}+${cliente.idCliente}">Eliminar</a></td>
-                    <td><a th:href="@{/cliente/modificar}+${cliente.idCliente}">Modificar</a></td>
-                </tr>
-            </tbody>
-        </table>
+            <h2>Un Cliente</h2>
+            <a th:href="@{/cliente/nuevo}">Nuevo Cliente</a>
+            <div th:if="${clientes !=null and !clientes.empty}">
+                <table border="1">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Apellidos</th>
+                            <th>Correo</th>
+                            <th>Teléfono</th>
+                            <th>Limite</th>
+                            <th>Eliminar</th>
+                            <th>Modificar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="cliente : ${clientes}">
+                            <td th:text="${cliente.nombre}"></td>
+                            <td th:text="${cliente.apellidos}"></td>
+                            <td th:text="${cliente.correo}"></td>
+                            <td th:text="${cliente.telefono}"></td>
+                            <td th:text="${#numbers.formatDecimal(cliente.credito.limite,3,2)}"
+                                style="text-align: right"></td>
+                            <td><a th:href="@{/cliente/eliminar/}+${cliente.idCliente}">Eliminar</a></td>
+                            <td><a th:href="@{/cliente/modificar}+${cliente.idCliente}">Modificar</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
             <div th:if="${clientes == null OR clientes.empty}">
                 NO TENEMOS LISTA DE CLIENTES EN BD
             </div>

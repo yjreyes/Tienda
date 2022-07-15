@@ -1,8 +1,8 @@
 
 package com.tienda.controller;
 
-import com.tienda.dao.ClienteDao;
-import com.tienda.domain.Cliente;
+// import com.tienda.dao.ClienteDao;
+// import com.tienda.domain.Cliente;
 import com.tienda.service.ArticuloService;
 // import com.tienda.service.ClienteService;
 
@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 @Slf4j
-
 public class indexController {
    
    @Autowired

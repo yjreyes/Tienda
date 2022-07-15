@@ -4,35 +4,30 @@
     <head>
         <title>Tienda | TechShop</title>
         <meta charset="UTF-8">
+        <link href="/css/menu.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
         <header th:replace="layout/plantilla :: header"/>
-        <h2>Datos de Clientes</h2>
-        <a th:href="@(/cliente/listado)">Regresar</a>
+        <div class="contenido">
+        <h2>Datos de Categorias</h2>
+        <a th:href="@(/categoria/listado)">Regresar</a>
         <br>
-        <form th:action="@{/cliente/guardar}"
+        <form th:action="@{/categoria/guardar}"
               method="post"
-              th:object="${cliente}">
-            <input type="hidden" name="idCliente" th:field="*{idCliente}"/>
-            <input type="hidden" name="idCredito" th:field="*{credito.idGredito}"/>
+              th:object="${categoria}">
+            <input type="hidden" name="idCategoria" th:field="*{idCategoria}"/>
             
-            <label for="nombre">Nombre: </label>
-            <imput type="text" name="nombre" th:field="*{nombre}"/>
             
-            <label for="apellidos">Apellidos: </label>
-            <imput type="text" name="apellidos" th:field="*{apellidos}"/>
+            <label for="descripcion">Descripcion: </label>
+            <imput type="text" name="descripcion" th:field="*{descripcion}"/>
             
-            <label for="correo">correo: </label>
-            <imput type="email" name="correo" th:field="*{correo}"/>
+            <label for="activo">Activo: </label>
+            <imput type="boolean" name="activo" th:field="*{activo}"/>
             
-            <label for="telefono">telefono: </label>
-            <imput type="tel" name="telefono" th:field="*{telefono}"/>
-            
-            <label for="limite">limite de credito: </label>
-            <imput type="number" name="limite" th:field="*{credito.limite}"/>
             
             <imput type="submit" name="guardar" value="Guardar"/>
         </form>
+        </div>
         <footer th:replace="layout/plantilla :: footer"/>
     </body>
 </html>

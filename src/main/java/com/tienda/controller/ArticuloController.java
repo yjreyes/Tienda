@@ -1,7 +1,7 @@
 
 package com.tienda.controller;
 
-import com.tienda.dao.ArticuloDao;
+// import com.tienda.dao.ArticuloDao;
 import com.tienda.domain.Articulo;
 import com.tienda.service.ArticuloService;
 
