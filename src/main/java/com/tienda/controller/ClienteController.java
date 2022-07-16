@@ -45,5 +45,8 @@ public class ClienteController {
         clienteService.delete(cliente);
         return "redirect:/cliente/listado";
     }
-
+    @GetMapping("/cliente/buscar")
+    public String buscar(){
+        return "cliente/buscar";
+    }
 }

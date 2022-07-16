@@ -9,8 +9,9 @@
     <body>
         <header th:replace="layout/plantilla :: header"/>
         <div class="contenido">
-            <h2>Un Cliente</h2>
-            <a th:href="@{/cliente/nuevo}">Nuevo Cliente</a>
+            <h2>Nuestros Clientes</h2>
+            <a th:href="@{/cliente/nuevo}">Nuevo Cliente</a><br>
+            <a th:href="@{/cliente/buscar}">Buscar Cliente</a>
             <div th:if="${clientes !=null and !clientes.empty}">
                 <table border="1">
                     <thead>

@@ -14,4 +14,6 @@ public interface ClienteService {
     
     public Cliente getCliente(Cliente cliente);
     
+    public void buscar(Cliente cliente);
+    
 }
