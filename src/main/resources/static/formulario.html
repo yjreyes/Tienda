@@ -1,27 +1,25 @@
 <!DOCTYPE html>
-<!--
-Esta es mi primera pagina con web y patrones
--->
+<!--  Esta es nuestra primera página web del curso  -->
 <html lang="es">
     <head>
         <title>TechShop</title>
         <meta charset="UTF-8">
-        <meta name="description" content="Pagina de tienda techshop">
-        <meta name="keywords" content="html5,css,techshop">
-        <link href="css/styles.css" rel="stylesheet" type="text/css"/>
+        <meta name="description" content="Página principal de la tienda TechShop">
+        <meta name="keywords" content="html5, css, TechShop">
+        <link href="css/estilos.css" rel="stylesheet" type="text/css"/>
     </head>
-    <body>
+    <body> 
         <header>
             <h1 id="encabezado">TechShop</h1>
         </header>
         <nav>
-            <a href="ejemplo6.html">Back</a> | <a href="index.html">Home</a> | <a href="ejemplo2.html">Next</a>
-        </nav>
-        
+            <a href="ejemplo6.html">Back</a> | <a href="indexRespaldo.html">Home</a> | <a href="ejemplo2.html">Next</a>
+        </nav>        
         <section>
             <h2>Formulario</h2>
             <article>
                 <header><h3>Tipos de input</h3></header>
+                <hr>
                 <form action="confirmacion.jsp" method="POST">
                     <fieldset>
                         <legend> Datos Personales </legend>
@@ -58,15 +56,21 @@ Esta es mi primera pagina con web y patrones
                         <label>Fecha de ingreso:</label>
                         <input type="date" name="fechaIngre"/>
                         <br/>
+
+
+
                         <label>Fotografía:</label>
                         <input type="file" name="foto"/>
                         <br/>
                         <label>Este código no se ve:</label>
                         <input type="hidden" name="idProducto" value="XHT-001"/>
                         <br/>                    
+
+
                         <label>Contraseña:</label>
                         <input type="password" name="clave"/>
                         <br/>
+
                         <label>Horario:</label>
                         <input type="radio" name="horario" value="M"/> Mañana
                         <input type="radio" name="horario" value="I"/> Intermedio
@@ -76,6 +80,7 @@ Esta es mi primera pagina con web y patrones
                         <label>Contraseña:</label>
                         <input type="reset" name="Borrar todo"/>
                         <br/>
+
                         <label>Busqueda:</label>
                         <input type="search" name="buscar" placeholder="Buscar..."/>
                     </fieldset>
@@ -84,9 +89,9 @@ Esta es mi primera pagina con web y patrones
                 </form>
             </article>
         </section>
+        <hr>
         <footer>
-            <p>Sitio desarrollado en curso web y patrones 2022 &COPY;</p>
+            Sitio desarrollado <span>en el curso Web</span> y Patrones 2022 &COPY; 
         </footer>
     </body>
 </html>
-
