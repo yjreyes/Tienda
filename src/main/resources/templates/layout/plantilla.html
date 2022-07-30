@@ -1,9 +1,15 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
-      xmlns="http://www.w3.org/1999/xhtml">
-    <head>
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:sec="http://thymeleaf.org/extras/spring-security">
+    <head th:fragment="head">
         <title>TechShop</title>
         <meta charset="UTF-8"/>
+        <link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
+        <link th:href="@{/webjars/font-awesome/css/all.css}" rel="stylesheet"/>
+        <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+        <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+        <script th:src="@{/webjars/bootstrap/js/botstrap.min.js}"></script>
     </head>
     <body>
 
@@ -12,20 +18,23 @@
                 <a th:href="@{/}" class="logo nav-link">TechShop</a>
                 <ul class="nav-menu">
                     <li class="nav-menu-item">
-                        <a th:href="@{/cliente/listado}" class="nav-menu-link">Clientes</a>
+                        <a th:href="@{/cliente/listado}" class="nav-menu-link">[[#{plantilla.clientes}]]</a>
                     </li>
                     <li class="nav-menu-item">
-                        <a th:href="@{/categoria/listado}" class="nav-menu-link">Categorias</a>
+                        <a th:href="@{/categoria/listado}" class="nav-menu-link">[[#{plantilla.categorias}]]</a>
                     </li>
                     <li class="nav-menu-item">
-                        <a th:href="@{/articulo/listado}" class="nav-menu-link">Articulos</a>
+                        <a th:href="@{/articulo/listado}" class="nav-menu-link">[[#{plantilla.articulos}]]</a>
                     </li>
                 </ul>
             </nav>
         </header>
 
         <footer th:fragment="footer" class="footer">
-            <p>&COPY Derechos Reservados 2022</p>
+            <p>&COPY [[#{plantilla.derechos}]]
+                <a th:href="@{/(lang=es)}">ES</a>
+                <a th:href="@{/(lang=en)}">EN</a>
+            </p>
         </footer>
     </body>
 </html>
