@@ -5,6 +5,8 @@ import java.util.List;
 
 public interface ClienteService {
     
+    public Cliente getByApellidos(Cliente cliente);
+    
     public List<Cliente> getClientes();
     
     public void save(Cliente cliente);
@@ -13,5 +15,4 @@ public interface ClienteService {
     
     public Cliente getCliente(Cliente cliente);    
     
-    public Cliente Buscar(String apellidos);
 }

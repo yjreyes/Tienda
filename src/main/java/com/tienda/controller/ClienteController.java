@@ -13,17 +13,40 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 @Slf4j
-public class ClienteController {    
+public class ClienteController {
+
     @Autowired
-    private ClienteService clienteService;    
+    private ClienteService clienteService;
+
+    @GetMapping("/cliente/busqueda")
+    public String busqueda(Cliente cliente) {
+        return "/cliente/buscar";
+    }
+
+    @PostMapping("/cliente/buscar")
+    public String buscarCliente(Cliente cliente, Model model) {
+        cliente = clienteService.getByApellidos(cliente);
+        if (cliente != null) {
+            model.addAttribute("cliente", cliente);
+            return "/cliente/modificar";
+        } else {
+            return "/cliente/buscar";
+        }
+    }
 
     @GetMapping("/cliente/listado")
     public String inicio(Model model) {
         var clientes = clienteService.getClientes();
-        model.addAttribute("clientes",clientes);
+        var limiteTotal=0;
+        for(var c:clientes){
+            limiteTotal+=c.getCredito().getLimite();
+        }
+        model.addAttribute("limiteTotal", limiteTotal);
+        model.addAttribute("totalClientes", clientes.size());
+        model.addAttribute("clientes", clientes);
         return "cliente/listado";
     }
-    
+
     @GetMapping("/cliente/nuevo")
     public String nuevoCliente(Cliente cliente) {
         return "cliente/modificar";
@@ -34,28 +57,17 @@ public class ClienteController {
         clienteService.save(cliente);
         return "redirect:/cliente/listado";
     }
-    
+
     @GetMapping("/cliente/modificar/{idCliente}")
     public String modificarCliente(Cliente cliente, Model model) {
         cliente = clienteService.getCliente(cliente);
-        model.addAttribute("cliente",cliente);
-        return "cliente/modificar";
-    }
-    
-    @GetMapping("/cliente/eliminar/{idCliente}")
-    public String eliminarCliente(Cliente cliente) {
-        clienteService.delete(cliente);        
-        return "redirect:/cliente/listado";
-    }
-    @GetMapping("/cliente/busqueda")
-    public String bucar(Cliente cliente) {
-        return "cliente/busqueda";
-    }
-
-    @PostMapping("/cliente/buscar")
-    public String busqueda(Cliente cliente, Model model) {
-        cliente = clienteService.Buscar(cliente.getApellidos());
         model.addAttribute("cliente", cliente);
         return "cliente/modificar";
+    }
+
+    @GetMapping("/cliente/eliminar/{idCliente}")
+    public String eliminarCliente(Cliente cliente) {
+        clienteService.delete(cliente);
+        return "redirect:/cliente/listado";
     }
 }
